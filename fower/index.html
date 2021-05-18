@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>一个 utility-first 的 CSS in JS 库 | forsigner的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="JavaScript,CSS," />
+  
+
+  <meta name="description" content="Fower 是什么？Fower 是一个让你高效开发 UI 的样式工具库，目标是让你写 CSS 不再痛苦。Fower 的核心特点是原子化(Atomic&#x2F;utility-first)、类型安全(Type Safe)、CSS in JS，它非常注重开发体验，让你快速且开心的开发界面。 Fower 是框架无关的，你可以在 React、Vue、React native、小程序等任何 JavaScript 项">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个 utility-first 的 CSS in JS 库">
+<meta property="og:url" content="http://www.forsigner.com/fower/index.html">
+<meta property="og:site_name" content="forsigner的博客">
+<meta property="og:description" content="Fower 是什么？Fower 是一个让你高效开发 UI 的样式工具库，目标是让你写 CSS 不再痛苦。Fower 的核心特点是原子化(Atomic&#x2F;utility-first)、类型安全(Type Safe)、CSS in JS，它非常注重开发体验，让你快速且开心的开发界面。 Fower 是框架无关的，你可以在 React、Vue、React native、小程序等任何 JavaScript 项">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-18T06:49:32.440Z">
+<meta property="article:author" content="forsigner">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="forsigner的博客" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+
+
+  
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fower-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">Fower 是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-text">项目背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%90%86%E5%BF%B5"><span class="toc-text">核心理念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%BE%88%E9%85%B7%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">一些很酷的特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Layout-Toolkit"><span class="toc-text">1. Layout Toolkit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Predictable-style"><span class="toc-text">2. Predictable style</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%A2%9C%E8%89%B2%E5%8A%A9%E6%89%8B"><span class="toc-text">3. 颜色助手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8F%AF%E7%BB%84%E5%90%88%E7%9A%84%E5%90%8E%E7%BC%80"><span class="toc-text">4. 可组合的后缀</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-text">最后</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-fower" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">一个 utility-first 的 CSS in JS 库</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2021.04.25</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>forsigner</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="Fower-是什么？"><a href="#Fower-是什么？" class="headerlink" title="Fower 是什么？"></a>Fower 是什么？</h2><p>Fower 是一个让你高效开发 UI 的样式工具库，目标是让你写 CSS 不再痛苦。Fower 的核心特点是原子化(Atomic/utility-first)、类型安全(Type Safe)、CSS in JS，它非常注重开发体验，让你快速且开心的开发界面。</p>
+<p>Fower 是框架无关的，你可以在 React、Vue、React native、小程序等任何 JavaScript 项目中使用。</p>
+<h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>一年前，我所在的团队同时在开发 Web、React native、小程序项目。在这三类项目中，我们使用了各不相同的样式方案：</p>
+<ul>
+<li>在 Web 项目中，我们使用的是 Styed-component；</li>
+<li>在 React native 项目中，我们使用 React native 自带的 <code>StyleSheet.create</code>；</li>
+<li>在小程序项目中，我们使用 Taro 开发，样式方案是 Sass;</li>
+</ul>
+<p>三种样式的方案写法各不相同，导致我们编写样式时特别痛苦：</p>
+<ul>
+<li>开发体验差，开发同样的界面，却要不同的写法，需要不断切换习惯和思维</li>
+<li>工具链太广太复杂，Styled-component、Sass、StyleSheet.create…</li>
+<li>开发效率低下，重复代码特别多</li>
+<li>CSS 天生缺点多，可维护性差</li>
+</ul>
+<p>后面，我发现了 <a href="https://tailwindcss.com/" target="_blank" rel="noopener">Tailwindcss</a>，一个 utility 优先(utility-first) 的 CSS 框架，在我的推动下，我们团队开始在 Web 项目中使用 Tailwindcss。一段时间后，我们发现开发体验很不错，开发效率也很高，特别适合在我们这种需要高度定制界面的项目使用。可惜的是，Tailwindcss 无法直接在 React native、小程序等非 Web 项目使用。</p>
+<p>我们团队的成员都喜欢 Tailwindcss 这种样式写法。所以我创建了 <a href="https://github.com/forsigner/fower" target="_blank" rel="noopener">Fower</a>，希望能统一了所有项目的样式编写方式。</p>
+<p>和 Tailwindcss 类似，我们也使用了 utility-first 的理念，但有 Fower 又有点不同，Fower 使用 Atomic style props 的方式编写样式，代码如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">toCenterY</span> <span class="attr">p-10</span> <span class="attr">w-260</span> <span class="attr">rounded-10</span> <span class="attr">shadow</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">circle-48</span> <span class="attr">src</span>=<span class="string">"/img/jobs.jpg"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">ml-10</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">textXL</span> <span class="attr">fontBold</span>&gt;</span>Steve Jobs<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">gray800</span>&gt;</span>Co-founder of Apple Inc.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="核心理念"><a href="#核心理念" class="headerlink" title="核心理念"></a>核心理念</h2><p>Fower 是 opinionated 的，我们基于以下理念创建了它：</p>
+<ul>
+<li><p><strong>utility-first</strong>，这种方式让我们更快速地编写样式，和其他 “utility-first” CSS 框架不同的是，Fower 使用 “Atomic style prop” 编写样式</p>
+</li>
+<li><p><strong>Type safe</strong>，我们团队是 TypeScript 重度使用用户，Type safe 带来的智能提示，让我们几乎很少翻阅文档，并且在编写代码时不依赖任何编辑插件就有准确的自动补全</p>
+</li>
+<li><p><strong>Framework-agnostic</strong>，这是我们创建 Fower 的最主要原因之一，Fower 可以让你用一致的写法在 React、Vue、React Native 编写样式</p>
+</li>
+<li><p><strong>CSS in JS</strong>，我们讨厌在独立的 CSS 文件中编写 CSS，纯 CSS 有非常多缺点，如：无法访问 JS 变量；容易产生样式冲突；容易产生死代码… 我们喜欢使用 JS (CSS in JS) 编写样式，它更适合在组件化时代中使用。实际上，Fower 不仅仅是 CSS in JS，它也是 CSS in HTML。</p>
+</li>
+</ul>
+<h2 id="一些很酷的特性"><a href="#一些很酷的特性" class="headerlink" title="一些很酷的特性"></a>一些很酷的特性</h2><p>Fower 有非常多的特性，如原子类、响应式、伪类、主题、设计系统、CSS in JS…，我觉这些是 Fower 的基础功能，并不是特色功能。</p>
+<p>Fower 有几个我认为很酷的功能：</p>
+<h3 id="1-Layout-Toolkit"><a href="#1-Layout-Toolkit" class="headerlink" title="1. Layout Toolkit"></a>1. Layout Toolkit</h3><p>如果要我在 Fower 中选一个最喜欢的特性，那毫无疑问是 <a href="https://fower.vercel.app/zh-cn/docs/fower-layout-introduction" target="_blank" rel="noopener">Layout Toolkit</a>。</p>
+<p>Fower 提供了一个强大的基于 Flexdiv 的布局工具，通过调整布局的方向(Direction)和对齐(Alignment)，可以实现大部分的布局，使布局工作更轻松。</p>
+<p>相比传统的 flex 布局，Fower 的布局更加抽象精简，Fower 的布局抽象为 <code>toCenter</code>、<code>toCenterX</code>、<code>toCenterY</code>、<code>toLeft</code>、<code>toTop</code>、<code>toRight</code>、<code>toBottom</code>、<code>toBetween</code>、<code>toEvenly</code>、<code>toAround</code> 十种原子对齐方式，使用时你可以忘记传统 flex 布局中的主轴（main axis）和交叉轴（cross axis）的概念，你只需要有方向感即可。</p>
+<p>使用方式如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">toCenter</span> <span class="attr">bgGray100</span> <span class="attr">square-200</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">square-60</span> <span class="attr">bgAmber400</span> <span class="attr">rounded-8</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">square-80</span> <span class="attr">bgBlue400</span> <span class="attr">rounded-8</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>更详细的使用方法请看文档： <a href="https://fower.vercel.app/zh-cn/docs/fower-layout-introduction" target="_blank" rel="noopener">Layout Toolkit</a>。</p>
+<h3 id="2-Predictable-style"><a href="#2-Predictable-style" class="headerlink" title="2. Predictable style"></a>2. Predictable style</h3><p>另外一个我个人很喜欢的特性的是 Predictable style。在传统的 CSS 中，我认为样式是不可预测的。为什么这么说？这里举个例子。</p>
+<p>我们有如下的 CSS:</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.red</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.blue</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有如下的的 html, css 类名分别为 “red blue” 和 “blue red”：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">"red blue"</span>&gt;</span>Fower<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">"blue red"</span>&gt;</span>Fower<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>你能确定文字的颜色吗？不好确定，如果我们不翻看上面的 CSS 代码，你无法直接判断文字的颜色，只能通过开发者工具调试得知。</p>
+<p>在 Flower 中，你可以轻易判断下面文字的颜色：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">red400</span> <span class="attr">blue400</span>&gt;</span> text will be color blue400 <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">blue400</span> <span class="attr">red400</span>&gt;</span> text will be color red400 <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这有什么用呢？除了让我们更容易判断样式结果，我觉的最有用的是：当我们抽象出一个可复用的组件时，比如一个通用的 <code>Button</code>, 那调用方可以轻易的覆盖组件默认样式，比如这样类似的代码 <code>&lt;Button bgRed300&gt;&lt;/Button&gt;</code> 可以安全的设置背景色。</p>
+<p>更详细的使用方法请看文档：<a href="https://fower.vercel.app/zh-cn/docs/predictable-style" target="_blank" rel="noopener">Predictable style</a>。</p>
+<h3 id="3-颜色助手"><a href="#3-颜色助手" class="headerlink" title="3. 颜色助手"></a>3. 颜色助手</h3><p>Fower 的另一个很酷的功能是颜色助手，您可以使用一些后缀来处理颜色。</p>
+<p>使用 <code>--D{0-100}</code> 这样的后缀来加深一个颜色:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">toEvenly</span> <span class="attr">toCenterY</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">red300</span>&gt;</span>normal<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">red300--D40</span>&gt;</span>darken<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">color</span>=<span class="string">"#fff--D40"</span>&gt;</span>darken<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">bgRed300</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">bgRed300--D40</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">border</span> <span class="attr">borderRed300</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">border</span> <span class="attr">borderRed300--D40</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>--L{0-100}</code> 后缀来变浅一个颜色：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">toEvenly</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">red500</span>&gt;</span>normal<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">red500--T40</span>&gt;</span>transparentize<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">color</span>=<span class="string">"#000--T40"</span>&gt;</span>transparentize<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">bgRed500</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">bgRed500--T40</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">border</span> <span class="attr">borderRed300</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">border</span> <span class="attr">borderRed300--T40</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>--T{0-100}</code> 后缀来增加颜色的透明度：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">toEvenly</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">red500</span>&gt;</span>normal<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">red500--T40</span>&gt;</span>transparentize<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">color</span>=<span class="string">"#000--T40"</span>&gt;</span>transparentize<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">bgRed500</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">bgRed500--T40</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">border</span> <span class="attr">borderRed300</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">border</span> <span class="attr">borderRed300--T40</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>--O{0-100}</code> 后缀来增加颜色的不透明度：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">toEvenly</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">color</span>=<span class="string">"rgba(0,0,0,0.4)"</span>&gt;</span>0.4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">color</span>=<span class="string">"rgba(0,0,0,0.4)--O40"</span>&gt;</span>Opacify to 0.6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">bg</span>=<span class="string">"rgba(0,0,0,0.4)"</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">bg</span>=<span class="string">"rgba(0,0,0,0.4)--O40"</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">border</span> <span class="attr">borderColor</span>=<span class="string">"rgba(0,0,0,0.4)"</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">border</span> <span class="attr">borderColor</span>=<span class="string">"rgba(0,0,0,0.4)--O40"</span> <span class="attr">square-84</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>更详细的使用方法请看文档：<a href="https://fower.vercel.app/zh-cn/docs/color-helper" target="_blank" rel="noopener">Color helper</a>。</p>
+<h3 id="4-可组合的后缀"><a href="#4-可组合的后缀" class="headerlink" title="4. 可组合的后缀"></a>4. 可组合的后缀</h3><p>Fower 提供一些后缀来快速处理样式, 如: <code>--hover</code>, <code>--focus</code>, <code>--sm</code>, <code>--dark</code>, <code>--T{amount}</code>…</p>
+<p>Flower 的另一个很酷的功能是可组合的后缀。 您可以组合一些后缀，并且顺序是<strong>任意</strong>的:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">square-84</span> <span class="attr">bgOrange300</span> <span class="attr">bgOrange400--D10--hover--sm</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面的代码和上面是等价的：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">square-84</span> <span class="attr">bgOrange300</span> <span class="attr">bgOrange400--hover--sm--D10</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>如果你想了解更多关于 Fower 的信息，你可以访问项目网站和官方文档。</p>
+<ul>
+<li>项目地址： <a href="https://github.com/forsigner/fower" target="_blank" rel="noopener">https://github.com/forsigner/fower</a></li>
+<li>项目文档：<a href="https://fower.vercel.app" target="_blank" rel="noopener">https://fower.vercel.app</a></li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/wechaty-personal-reminder/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/layout-engine/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '277317290454635afa73',
+  clientSecret: '78223c859304da5e8d71bfce136d436c6ff95c37',
+  repo: 'blog-comment',
+  owner: 'forsigner',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: md5(location.pathname),
+  admin: ['forsigner'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

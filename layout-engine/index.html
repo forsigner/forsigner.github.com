@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>一个开发者优先(developer-first)的布局引擎 | forsigner的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="JavaScript,CSS," />
+  
+
+  <meta name="description" content="为什么会有这篇文章两周前，我发布了我的一个前端开源项目，名字为：Fower。很多用户问我，Fower 和 Tailwindcss 有什么不同，我的回答是 Fower 在 utilty-first 这一点，理念是和 Tailwindcss 一致的，实际上 utilty-first 理念的 CSS 框架很早就有，比如：ACSS、Tachyons。 其中，Fower 和 Tailwindcss 最大的不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个开发者优先(developer-first)的布局引擎">
+<meta property="og:url" content="http://www.forsigner.com/layout-engine/index.html">
+<meta property="og:site_name" content="forsigner的博客">
+<meta property="og:description" content="为什么会有这篇文章两周前，我发布了我的一个前端开源项目，名字为：Fower。很多用户问我，Fower 和 Tailwindcss 有什么不同，我的回答是 Fower 在 utilty-first 这一点，理念是和 Tailwindcss 一致的，实际上 utilty-first 理念的 CSS 框架很早就有，比如：ACSS、Tachyons。 其中，Fower 和 Tailwindcss 最大的不">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fower.vercel.app/img/layout-sketch.png">
+<meta property="og:image" content="https://fower.vercel.app/img/layout-figma.png">
+<meta property="og:image" content="https://fower.vercel.app/img/layout-1.png">
+<meta property="og:image" content="https://fower.vercel.app/img/layout-2.png">
+<meta property="og:image" content="https://fower.vercel.app/img/layout-3.png">
+<meta property="og:image" content="https://fower.vercel.app/img/layout-4.png">
+<meta property="og:image" content="https://fower.vercel.app/img/layout-5.png">
+<meta property="article:published_time" content="2021-05-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-18T06:49:27.040Z">
+<meta property="article:author" content="forsigner">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fower.vercel.app/img/layout-sketch.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="forsigner的博客" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+
+
+  
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0"><span class="toc-text">为什么会有这篇文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B1%80%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="toc-text">布局发展史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B1%80%E7%9A%84%E6%A0%B8%E5%BF%83"><span class="toc-text">布局的核心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E5%B8%83%E5%B1%80%E6%96%B9%E5%BC%8F"><span class="toc-text">设计软件布局方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Layout-In-Swift-UI-and-Flutter"><span class="toc-text">Layout In Swift UI and Flutter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flexbox-%E5%B8%83%E5%B1%80%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">Flexbox 布局的缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E7%90%86%E6%83%B3%E4%B8%AD%E7%9A%84%E5%B8%83%E5%B1%80%E6%96%B9%E5%BC%8F-%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1"><span class="toc-text">我理想中的布局方式 (方案设计)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fower-Layout"><span class="toc-text">Fower Layout</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-layout-engine" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">一个开发者优先(developer-first)的布局引擎</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2021.05.10</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>forsigner</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="为什么会有这篇文章"><a href="#为什么会有这篇文章" class="headerlink" title="为什么会有这篇文章"></a>为什么会有这篇文章</h2><p>两周前，我发布了我的一个前端开源项目，名字为：<a href="https://github.com/forsigner/fower" target="_blank" rel="noopener">Fower</a>。很多用户问我，Fower 和 Tailwindcss 有什么不同，我的回答是 Fower 在 utilty-first 这一点，理念是和 Tailwindcss 一致的，实际上 utilty-first 理念的 CSS 框架很早就有，比如：<a href="https://acss.io/" target="_blank" rel="noopener">ACSS</a>、<a href="https://tachyons.io/" target="_blank" rel="noopener">Tachyons</a>。</p>
+<p>其中，Fower 和 Tailwindcss 最大的不同点之一，就是 Fower 提供了非常易用的布局工具: Fower Layout toolkit，这样是写这篇文章的缘由。下面会详细分享开发 Fower layout 的初衷和其设计思路。</p>
+<h2 id="布局发展史"><a href="#布局发展史" class="headerlink" title="布局发展史"></a>布局发展史</h2><p>Fower Layout 要解决的问题就是布局问题，让我们简单回顾一下 Web 布局的发展史。在 Web 布局整个演进过程当中，经历了没有任何布局、表格布局、定位布局、浮动布局、Flexbox 布局、Grid 布局。</p>
+<p>这里不细说每种布局的特点和优缺点，我只说我的观点和结论：在当前阶段，从功能性、易用性、浏览器兼容性等方面考虑，使用 Flexbox 布局是最好的选择。当然有兴趣的同学可以阅读下面的资料。</p>
+<ul>
+<li><a href="https://juejin.cn/post/6844903636602978318" target="_blank" rel="noopener">聊聊 CSS 中的布局模式</a></li>
+<li><a href="https://juejin.cn/post/6844903583331123214" target="_blank" rel="noopener">前端布局基础概述</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/104927765" target="_blank" rel="noopener">网页布局简史</a></li>
+<li><a href="http://grid-layout.com/history.html" target="_blank" rel="noopener">Web layout history</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank" rel="noopener">Flexbox</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank" rel="noopener">CSS Grid Layout</a></li>
+</ul>
+<h2 id="布局的核心"><a href="#布局的核心" class="headerlink" title="布局的核心"></a>布局的核心</h2><p>我认为，布局的核心是处理容器和元素 (container and item)在某一方向 (x，y)的空间关系。这里有几个关键要素：容器、元素、方向、空间关系。实际上，这也是 flexbox 布局核心的东西，flexbox 布局几乎所有概念和用法都是围绕这四个要素展开的。我们在拿到一个设计稿时，如果能快速地识别出其中的容器、元素，并且理清他们的空间关系，便能很快速地去实现它。</p>
+<h2 id="设计软件布局方式"><a href="#设计软件布局方式" class="headerlink" title="设计软件布局方式"></a>设计软件布局方式</h2><p><img src="https://fower.vercel.app/img/layout-sketch.png" alt=""><br><img src="https://fower.vercel.app/img/layout-figma.png" alt=""></p>
+<p>Figma 和 Sketch 是两款非常出名的设计软件，我们可以看到，在元素空间关系的处理上，它们一致使用非常形象的指令: align to top、align to right、align to bottom、align to left、align base on space. 这也是最符合人直觉的方式。</p>
+<h2 id="Layout-In-Swift-UI-and-Flutter"><a href="#Layout-In-Swift-UI-and-Flutter" class="headerlink" title="Layout In Swift UI and Flutter"></a>Layout In Swift UI and Flutter</h2><p>接下来我们看看两个现代化的 UI 解决方案：Swift UI 和 Flutter，它们是怎么处理 UI 布局的。</p>
+<p>在 Swift UI，我们可以看到 HStack、VStack、aligment、space 等关键字，我们发现 Swift UI 也是围绕 容器、元素、方向、空间关系四个要素展开的:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">struct ContentView: View &#123;</span><br><span class="line">    <span class="keyword">var</span> body: some View &#123;</span><br><span class="line">        HStack(alignment: .top) &#123;</span><br><span class="line">            VStack &#123;</span><br><span class="line">                CalendarView()</span><br><span class="line">                Spacer()</span><br><span class="line">            &#125;</span><br><span class="line">            VStack(alignment: .leading) &#123;</span><br><span class="line">                Text(<span class="string">"Event title"</span>).font(.title)</span><br><span class="line">                Text(<span class="string">"Location"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            Spacer()</span><br><span class="line">        &#125;.padding()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 Flutter 中，我们可以看到 Row、Column、aligment、space 等关键字，我们发现 Flutter 也是围绕 容器、元素、方向、空间关系四个要素展开的:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Row(</span><br><span class="line">  mainAxisAlignment: MainAxisAlignment.spaceEvenly,</span><br><span class="line">  children: [</span><br><span class="line">    Image.asset(<span class="string">'images/pic1.jpg'</span>),</span><br><span class="line">    Image.asset(<span class="string">'images/pic2.jpg'</span>),</span><br><span class="line">    Image.asset(<span class="string">'images/pic3.jpg'</span>),</span><br><span class="line">  ],</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">Column(</span><br><span class="line">  mainAxisAlignment: MainAxisAlignment.spaceEvenly,</span><br><span class="line">  children: [</span><br><span class="line">    Image.asset(<span class="string">'images/pic1.jpg'</span>),</span><br><span class="line">    Image.asset(<span class="string">'images/pic2.jpg'</span>),</span><br><span class="line">    Image.asset(<span class="string">'images/pic3.jpg'</span>),</span><br><span class="line">  ],</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>我们发现，Swift UI 和 Flutter 的布局理念和 Flexbox 布局极其类似，另外，我们发现它们的布局代码是直接依附在容器和元素中的，不像传统的 Web，需要补样式代码单独分离到一个 CSS 文件中。Fower 同样这样的理念，样式就是应该容器和元素的一部分。</p>
+<p>Some references:</p>
+<ul>
+<li><a href="https://www.swiftbysundell.com/articles/swiftui-layout-system-guide-part-1/" target="_blank" rel="noopener">https://www.swiftbysundell.com/articles/swiftui-layout-system-guide-part-1/</a></li>
+<li><a href="https://flutter.dev/docs/development/ui/layout" target="_blank" rel="noopener">https://flutter.dev/docs/development/ui/layout</a></li>
+</ul>
+<h2 id="Flexbox-布局的缺点"><a href="#Flexbox-布局的缺点" class="headerlink" title="Flexbox 布局的缺点"></a>Flexbox 布局的缺点</h2><p>上面说了设计软件和现代化 UI 框架的布局方式，他们和 Flexbox 布局的理念非常类似，那 Flexbox 布局有什么缺点呢？Flexbox 非常优秀，但对于我来说它有一个最大的缺点就是易用性不够好。它有很多概念：主轴、交叉轴、方向、align-item、justify-content、flex-start、flex-end、flex-center 等。最大问题是，主轴的方向发生改变时，<code>align-items</code>, <code>justify-content</code> 的 UI 表现非常不符合人的直觉。特别是对于我这个不是永远都是在写 UI 的人 (我经常需要去写后端、打杂等)，每隔一段时间，就很可能忘记<code>align-items</code>, <code>justify-content</code>的用法。</p>
+<h2 id="我理想中的布局方式-方案设计"><a href="#我理想中的布局方式-方案设计" class="headerlink" title="我理想中的布局方式 (方案设计)"></a>我理想中的布局方式 (方案设计)</h2><p>上面聊了 Flexbox layout 的缺点：易用性不够好。我理想中布局方式的使用，应该像现代设计软件一样好用，我们只需关注布局四要素容器、元素、方向、空间关系，用法就是找到容器和元素，设置容器内元素的方向，然后设置空间关系。这里核心是如何表达空间关系，我觉得最符合人直觉的表达方式就是设计软件的方案。我把这种表达方式抽象为：toCenter, toCenterX, toCenterY, toTop, toRight, toBottom, toLeft, toBetween, toAround, toEvenly.</p>
+<ul>
+<li><strong>toCenter</strong>, make children elements align to center, see <a href="https://fower.vercel.app/docs/to-center" target="_blank" rel="noopener">Online Demo</a></li>
+<li><strong>toCenterX</strong>, make children elements align to center horizontal, see <a href="https://fower.vercel.app/docs/to-center-x" target="_blank" rel="noopener">Online Demo</a></li>
+<li><strong>toCenterY</strong>, make children elements align to center vertical, see <a href="https://fower.vercel.app/docs/to-center-y" target="_blank" rel="noopener">Online Demo</a></li>
+<li><strong>toTop</strong>, make children elements align to left, see <a href="https://fower.vercel.app/docs/to-left" target="_blank" rel="noopener">Online Demo</a></li>
+<li><strong>toRight</strong>, make children elements align to right, see <a href="https://fower.vercel.app/docs/to-right" target="_blank" rel="noopener">Online Demo</a></li>
+<li><strong>toBottom</strong>, make children elements align to bottom, see <a href="https://fower.vercel.app/docs/to-bottom" target="_blank" rel="noopener">Online Demo</a></li>
+<li><strong>toLeft</strong>, make children elements align to left, see <a href="https://fower.vercel.app/docs/to-left" target="_blank" rel="noopener">Online Demo</a></li>
+<li><strong>toBetween</strong>, make children elements space between, see <a href="https://fower.vercel.app/docs/to-between" target="_blank" rel="noopener">Online Demo</a></li>
+<li><strong>toEvenly</strong>, make children elements space evenly, see <a href="https://fower.vercel.app/docs/to-evenly" target="_blank" rel="noopener">Online Demo</a></li>
+<li><strong>toAround</strong>, make children elements space around, see <a href="https://fower.vercel.app/docs/to-around" target="_blank" rel="noopener">Online Demo</a></li>
+</ul>
+<p>不管你的容器是水平方向 (row) 还是垂直方向 (column)，toRight、toBottom 这些空间关系表达，都会符合你视觉习惯。</p>
+<p>这种抽象的表达方式为什么更好呢？我觉的有几点好处：</p>
+<ul>
+<li>更符合人的直觉，你只需记住按照方向处理空间关系，比如：toRight、toBotom 等，没有什么比这更符合人的直觉，另外的好处的是你的记忆负担会变得非常小</li>
+<li>更少地代码，这种方式会让你代码更少，可维护性更强，开发效率更高</li>
+</ul>
+<p>我理想中的代码编写方式(伪代码)：</p>
+<p>1.下面代码会自动把容器内的元素水平和垂直居中，容器默认是 row, 所以可以省去：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Container</span> <span class="attr">toCenter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ItemA</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果如下：<br><img src="https://fower.vercel.app/img/layout-1.png" alt=""></p>
+<p>2.下面代码会把 A,B,C 三个个元素在容器内靠右对齐, 容器默认是 row, 所以可以省去：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;Container toRight&gt;</span><br><span class="line">  &lt;ItemA /&gt;</span><br><span class="line">  &lt;ItemB /&gt;</span><br><span class="line">  &lt;ItemC /&gt;</span><br><span class="line">&lt;<span class="regexp">/Container&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果如下：<br><img src="https://fower.vercel.app/img/layout-2.png" alt=""></p>
+<p>3.下面代码会把 A,B 两个元素在容器内靠右对齐, 我们声明了 column, 所以元素是竖着排列的：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;Container column toRight&gt;</span><br><span class="line">  &lt;ItemA /&gt;</span><br><span class="line">  &lt;ItemB /&gt;</span><br><span class="line">&lt;<span class="regexp">/Container&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果如下：<br><img src="https://fower.vercel.app/img/layout-3.png" alt=""></p>
+<ol start="4">
+<li>使用组合：</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;Container toBetween toCenterY&gt;</span><br><span class="line">  &lt;ItemA /&gt;</span><br><span class="line">  &lt;ItemB /&gt;</span><br><span class="line">  &lt;ItemC /&gt;</span><br><span class="line">&lt;<span class="regexp">/Container&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果如下：<br><img src="https://fower.vercel.app/img/layout-4.png" alt=""></p>
+<p>这里只举这四个伪代码例子，实际上你可以使用 “toLeft”, “toRight” 等这些指令实现大部分 UI 布局。</p>
+<p>上面，我们抽象了空间关系的表达方式，并把指令作用于容器上。下面我们来看一个布局效果，你会怎么实现它：</p>
+<p><img src="https://fower.vercel.app/img/layout-5.png" alt=""></p>
+<p>下面说说我理想中的方案，伪代码如下：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;Container toBetween toCenterY&gt;</span><br><span class="line">  &lt;ItemA /&gt;</span><br><span class="line">  &lt;ItemB selfBottom /&gt;</span><br><span class="line">  &lt;ItemC /&gt;</span><br><span class="line">&lt;<span class="regexp">/Container&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里我们抽象出另外一类指令：selfTop, selfRight, selfBottom, selfLeft, selfStretch. 这些指令可以作用在元素上，单独控制元素的定位对齐方式。</p>
+<p>所以我们有一些作用于元素的指令：</p>
+<ul>
+<li><strong>selfTop</strong>, make elements seft align to top</li>
+<li><strong>selfRight</strong>, make elements seft align to right</li>
+<li><strong>selfBottom</strong>, make elements seft align to bottom</li>
+<li><strong>selfLeft</strong>, make elements seft align to left</li>
+<li><strong>selfStretch</strong>, make elements seft to Stretch</li>
+</ul>
+<p>最后，总结一下我们布局工具设计方案：</p>
+<ul>
+<li>【容器】方向控制指令，使用 row, column, 如果未声明，默认为 row</li>
+<li>【容器】内元素对齐方式指令: toCenter, toCenterX, toCenterY, toTop, toRight, toBottom, toLeft, toBetween, toAround, toEvenly，使用这些指令控制子元素对齐方式，并且和 row, column 方向无关</li>
+<li>【元素】自身对齐方式指令：selfTop, selfRight, selfBottom, selfLeft, selfStretch. 这些指令单独控制元素自身对齐方式</li>
+<li>使用任何【容器】指令，会自动触发 flexbox 布局，无需手动设置 <code>display: flex;</code></li>
+</ul>
+<p>上面 4 条规则设计，就是我个人理想中的布局方式。</p>
+<h2 id="Fower-Layout"><a href="#Fower-Layout" class="headerlink" title="Fower Layout"></a>Fower Layout</h2><p>回到我们的标题：一个开发者优先(developer-first)的布局引擎。 实际上，Fower Layout 不能称之为布局引擎，那是什么？ 也许我们称其为 Layout toolkit 会更合适。</p>
+<p>Fower Layout 的最大特点是 developer-first，它易于使用并且符合人们的直觉。</p>
+<p>实际上，即使你不使用 Fower Layout, 你也可以使用上面提到的设计思想去实现一套好用的布局工具，而不是使用原始的 Flex Layout。</p>
+<p>关于 Fower Layout 更详细的信息，可以看看官方文档的介绍：<a href="https://fower.vercel.app/docs/fower-layout-introduction" target="_blank" rel="noopener">Fower Layout Introduction</a></p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/fower/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '277317290454635afa73',
+  clientSecret: '78223c859304da5e8d71bfce136d436c6ff95c37',
+  repo: 'blog-comment',
+  owner: 'forsigner',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: md5(location.pathname),
+  admin: ['forsigner'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
